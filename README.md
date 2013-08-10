@@ -9,6 +9,8 @@ Hydroelectric organises revision notes into topics and subjects and displays the
 
 Since revision notes need to be accessed wherever a user is, Hydroelectric uses a web interface to allow this.
 
+Hydroelectric uses [Semantic Versioning](http://semver.org/) and [TomDoc](http://tomdoc.org/).
+
 ## Requirements
 
 * Ruby 2.0.0
