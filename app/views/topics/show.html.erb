@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @topic.name %>
+</p>
+<p>
+  <%= link_to 'View notes', subject_topic_notes_path(@subject.id, @topic.id) %>
+</p>
+
+<%= link_to 'Edit', edit_subject_topic_path(@topic.subject_id, @topic.id) %> |
+<%= link_to 'Back', subject_topics_path %>

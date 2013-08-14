@@ -1,4 +1,15 @@
-Hydroelectric::Application.routes.draw do
+Penpencilruler::Application.routes.draw do
+
+  
+  resources :subjects do
+    resources :topics do
+      resources :notes
+    end
+  end
+
+  root :to => 'subjects#index'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

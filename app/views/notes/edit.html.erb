@@ -1,0 +1,6 @@
+<h1>Editing note</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', subject_topic_note_path(@subject.id, @topic.id, @note.id) %> |
+<%= link_to 'Back', subject_topic_notes_path(@subject.id, @topic.id) %>

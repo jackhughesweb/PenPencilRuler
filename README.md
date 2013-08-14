@@ -1,15 +1,15 @@
-## hydroelectric
+## penpencilruler
 a simple way to revise notes
 
-![Hydroelectric Logo](hydroelectric-logo-200.png)
+![PenPencilRuler Logo](hydroelectric-logo-200.png)
 
 ## Description
 
-Hydroelectric organises revision notes into topics and subjects and displays these notes.
+PenPencilRuler organises revision notes into topics and subjects and displays these notes.
 
-Since revision notes need to be accessed wherever a user is, Hydroelectric uses a web interface to allow this.
+Since revision notes need to be accessed wherever a user is, PenPencilRuler uses a web interface to allow this.
 
-Hydroelectric uses [Semantic Versioning](http://semver.org/) and [TomDoc](http://tomdoc.org/).
+PenPencilRuler uses [Semantic Versioning](http://semver.org/) and [TomDoc](http://tomdoc.org/).
 
 ## Requirements
 

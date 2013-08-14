@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Hydroelectric::Application.load_tasks
+Penpencilruler::Application.load_tasks
