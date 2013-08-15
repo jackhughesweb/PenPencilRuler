@@ -9,7 +9,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
 <% [:notice, :error, :alert].each do |level| %>
   <% unless flash[level].blank? %>
     <div class="main">
@@ -19,26 +18,7 @@
     </div>
   <% end %>
 <% end %>
-
-  <header>
-    <div class="maxwidth">
-      <a href="/" class="home"><img src="<%= image_path("pencil.png") %>" width="50" height="50"> <span>Pen Pencil Ruler</span></a>
-      <div id="user_nav">
-        <% if user_signed_in? %>
-          Signed in as <%= current_user.email %>.
-          <%= link_to "Sign out", logout_path, :method => :delete %>
-        <% else %>
-          <a href="signup" class="signup">Sign up</a>
-          <a href="login" class="login">Login</a>
-        <% end %>
-      </div>
-    </div>
-  </header>
-  <div class="main">
-  <div class="maxwidth">
 <%= yield %>
-</div>
-</div>
 <footer>
     <div class="maxwidth">
       Created by <a href="http://www.jackhughesweb.com">Jack Hughes</a>

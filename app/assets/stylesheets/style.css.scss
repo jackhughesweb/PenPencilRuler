@@ -1,0 +1,164 @@
+@mixin gradient($color){
+  background: $color;
+  background: -webkit-gradient(linear, left top, left bottom, from(lighten($color, 5%)), to(darken($color, 5%)));
+  background: -moz-linear-gradient(top, lighten($color, 5%), darken($color, 5%));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{lighten($color, 5%)}', endColorstr='#{darken($color, 5%)}');
+}
+
+@mixin button($color){
+  color: $color;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0.3em;
+  border-radius: 0.5em;
+  border: 2px solid $color;
+  display: inline-block;
+  &:hover{
+    background-color: $color;
+    color: #fff;
+  }
+  &:active{
+    background-color: darken($color, 10%);
+    border: 2px solid darken($color, 10%);
+    color: #fff;
+  }
+}
+
+@mixin button-list($color){
+  list-style: none;
+  padding: 0;
+  li{
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    @include gradient($color);
+    padding: 0.5em;
+    box-shadow: inset 0px 1px 0px lighten($color, 30%);
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.6);
+    border: 1px solid darken($color, 10%);
+    &:hover{
+      @include gradient(lighten(#444, 10%));
+    }
+  }
+  li:first-child{
+    border-radius: 0.5em 0.5em 0 0;
+  }
+  li:last-child{
+    border-radius: 0 0 0.5em 0.5em;
+  }
+}
+
+body{
+  margin: 0;
+}
+
+*{
+  font-family: 'Lato', 'Helvetica', sans-serif;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4{
+  margin: 0;
+}
+
+div.maxwidth{
+  width: 100%;
+  max-width: 55em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.maincontent{
+  padding: 0.5em;
+}
+
+div.maxwidth > a.home{
+  text-decoration: none;
+  color: #000;
+}
+
+div.maxwidth > a.home img,  div.maxwidth > a.home span, div.maxwidth > a.home{
+  vertical-align: middle;
+}
+
+div.maxwidth > a.home img{
+  border-radius: 3em;
+}
+
+.subjects > h2{
+  display: inline-block;
+}
+
+a.newsubjectsbutton{
+  @include button(#444);
+}
+
+ul.subjectlist{
+  @include button-list(#444);
+}
+
+div.main{
+  padding: 0.5em;
+}
+
+a.login, a.signup{
+  width: 5em;
+  @include button(#563e26);
+  text-align: center;
+  margin: 0.5em;
+}
+
+header{
+  padding: 0.5em;
+  overflow: auto;
+  a.account{
+    @include button(#444);
+    display: inline-block;
+    float: right;
+  }
+  &, *{
+    vertical-align: top;
+  }
+  div.maxwidth{
+    overflow: auto;
+    border-bottom: 1px solid #444;
+    padding-bottom: 0.5em;
+  }
+}
+
+img.hero{
+  width: 100%;
+  max-width: 30em;
+  height: auto;
+  display: inline-block;
+}
+
+p.center{
+  text-align: center;
+}
+
+div.index{
+  text-align: center;
+  @media screen and (min-width: 425px) {
+    font-size: 1.2em;
+  }
+  @media screen and (min-width: 525px) {
+    font-size: 1.4em;
+  }
+}
+
+div.alert-message{
+  color: #ff0000;
+  border-radius: 0.5em;
+  border: 2px solid #ff0000;
+  text-align: center
+}
+
+footer{
+  padding: 0.5em;
+  div.maxwidth{
+    overflow: auto;
+    border-top: 1px solid #444;
+    padding-top: 0.5em;
+  }
+}

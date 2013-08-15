@@ -1,4 +1,5 @@
 class SubjectsController < ApplicationController
+  before_filter :require_login
   # GET /subjects
   # GET /subjects.json
   def index
@@ -78,6 +79,14 @@ class SubjectsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to subjects_url }
       format.json { head :no_content }
+    end
+  end
+
+  private
+ 
+  def require_login
+    unless user_signed_in?
+      redirect_to root_url, flash: { error: "You must be logged in to access this section"}
     end
   end
 end

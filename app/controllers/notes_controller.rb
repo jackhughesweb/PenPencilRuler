@@ -1,4 +1,6 @@
 class NotesController < ApplicationController
+  before_filter :require_login
+
   # GET /notes
   # GET /notes.json
   def index
@@ -92,6 +94,14 @@ class NotesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to subject_topic_notes_path(@subject.id, @topic.id) }
       format.json { head :no_content }
+    end
+  end
+
+  private
+ 
+  def require_login
+    unless user_signed_in?
+      redirect_to root_url, flash: { error: "You must be logged in to access this section"}
     end
   end
 end
