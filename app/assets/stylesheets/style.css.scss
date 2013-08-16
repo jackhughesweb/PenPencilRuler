@@ -77,7 +77,7 @@ div.maxwidth > a.home{
   color: #000;
 }
 
-div.maxwidth > a.home img,  div.maxwidth > a.home span, div.maxwidth > a.home{
+div.maxwidth > a.home img,  div.maxwidth > a.home span, div.maxwidth > a.home, header span, header a{
   vertical-align: middle;
 }
 
@@ -110,7 +110,6 @@ a.login, a.signup{
 
 header{
   padding: 0.5em;
-  overflow: auto;
   a.account{
     @include button(#444);
     display: inline-block;
@@ -119,8 +118,10 @@ header{
   &, *{
     vertical-align: top;
   }
-  div.maxwidth{
+  &, div.maxwidth{
     overflow: auto;
+  }
+  div.maxwidth{
     border-bottom: 1px solid #444;
     padding-bottom: 0.5em;
   }
@@ -157,8 +158,24 @@ div.alert-message{
 footer{
   padding: 0.5em;
   div.maxwidth{
-    overflow: auto;
     border-top: 1px solid #444;
     padding-top: 0.5em;
   }
 }
+
+header span.userinfo{
+  height: 50px;
+  float: right;
+  padding-top: 15px;
+  @media screen and (max-width: 47.5em) {
+    float: none;
+  }
+}
+header a.home span{
+  font-size: 1.5em;
+  display: inline-block;
+   @media screen and (max-width: 47.5em) {
+    padding-right: 1em;
+  }
+}
+

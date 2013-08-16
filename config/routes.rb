@@ -1,8 +1,9 @@
 Penpencilruler::Application.routes.draw do
 
-  
-  devise_for :users do
-    delete '/logout' => 'devise/sessions#destroy'
+  devise_for :users
+
+  devise_scope :user do
+    get '/logout' => 'devise/sessions#destroy'
     get '/signup' => 'devise/registrations#new'
     get '/login' => 'devise/sessions#new'
   end

@@ -1,22 +1,12 @@
-<h1>Listing subjects</h1>
+<h2>Subjects</h2>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<ul>
 <% @subjects.each do |subject| %>
-  <tr>
-    <td><%= subject.name %></td>
-    <td><%= link_to 'Show', subject %></td>
-    <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
-    <td><%= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <li>
+    <%= link_to subject.name, subject_topics_path(subject) %>
+  </li>
 <% end %>
-</table>
+</ul>
 
 <br />
 

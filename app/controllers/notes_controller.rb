@@ -4,7 +4,8 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @subject = Subject.find(params[:subject_id])
+    @user = User.find(current_user.id)
+    @subject = @user.subjects.find(params[:subject_id])
     @topic = @subject.topics.find(params[:topic_id])
     @notes = @topic.notes
 
@@ -17,10 +18,10 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.json
   def show
-    @subject = Subject.find(params[:subject_id])
+    @user = User.find(current_user.id)
+    @subject = @user.subjects.find(params[:subject_id])
     @topic = @subject.topics.find(params[:topic_id])
     @note = @topic.notes.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @note }
@@ -30,7 +31,8 @@ class NotesController < ApplicationController
   # GET /notes/new
   # GET /notes/new.json
   def new
-    @subject = Subject.find(params[:subject_id])
+    @user = User.find(current_user.id)
+    @subject = @user.subjects.find(params[:subject_id])
     @topic = @subject.topics.find(params[:topic_id])
     @note = Note.new
 
@@ -42,7 +44,8 @@ class NotesController < ApplicationController
 
   # GET /notes/1/edit
   def edit
-    @subject = Subject.find(params[:subject_id])
+    @user = User.find(current_user.id)
+    @subject = @user.subjects.find(params[:subject_id])
     @topic = @subject.topics.find(params[:topic_id])
     @note = @topic.notes.find(params[:id])
   end
@@ -50,7 +53,8 @@ class NotesController < ApplicationController
   # POST /notes
   # POST /notes.json
   def create
-    @subject = Subject.find(params[:subject_id])
+    @user = User.find(current_user.id)
+    @subject = @user.subjects.find(params[:subject_id])
     @topic = @subject.topics.find(params[:topic_id])
     @note = Note.new(params[:note])
 
@@ -68,7 +72,8 @@ class NotesController < ApplicationController
   # PUT /notes/1
   # PUT /notes/1.json
   def update
-    @subject = Subject.find(params[:subject_id])
+    @user = User.find(current_user.id)
+    @subject = @user.subjects.find(params[:subject_id])
     @topic = @subject.topics.find(params[:topic_id])
     @note = @topic.notes.find(params[:id])
 
@@ -86,7 +91,8 @@ class NotesController < ApplicationController
   # DELETE /notes/1
   # DELETE /notes/1.json
   def destroy
-    @subject = Subject.find(params[:subject_id])
+    @user = User.find(current_user.id)
+    @subject = @user.subjects.find(params[:subject_id])
     @topic = @subject.topics.find(params[:topic_id])
     @note = @topic.notes.find(params[:id])
     @note.destroy

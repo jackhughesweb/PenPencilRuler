@@ -1,51 +1,36 @@
 class SubjectsController < ApplicationController
   before_filter :require_login
-  # GET /subjects
-  # GET /subjects.json
+
   def index
-    @subjects = Subject.all
+    @user = User.find(current_user.id)
+    @subjects = @user.subjects.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @subjects }
     end
   end
 
-  # GET /subjects/1
-  # GET /subjects/1.json
-  def show
-    @subject = Subject.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @subject }
-    end
-  end
-
-  # GET /subjects/new
-  # GET /subjects/new.json
   def new
     @subject = Subject.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.json { render json: @subject }
     end
   end
 
-  # GET /subjects/1/edit
   def edit
-    @subject = Subject.find(params[:id])
+    @user = User.find(current_user.id)
+    @subject = @user.subjects.find(params[:id])
   end
 
-  # POST /subjects
-  # POST /subjects.json
   def create
     @subject = Subject.new(params[:subject])
-
+    @subject.user_id = current_user.id
     respond_to do |format|
       if @subject.save
-        format.html { redirect_to @subject, notice: 'Subject was successfully created.' }
+        format.html { redirect_to subjects_url, notice: 'Subject was successfully created.' }
         format.json { render json: @subject, status: :created, location: @subject }
       else
         format.html { render action: "new" }
@@ -54,14 +39,12 @@ class SubjectsController < ApplicationController
     end
   end
 
-  # PUT /subjects/1
-  # PUT /subjects/1.json
   def update
     @subject = Subject.find(params[:id])
 
     respond_to do |format|
       if @subject.update_attributes(params[:subject])
-        format.html { redirect_to @subject, notice: 'Subject was successfully updated.' }
+        format.html { redirect_to subject_topics_url(@subject), notice: 'Subject was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -70,10 +53,9 @@ class SubjectsController < ApplicationController
     end
   end
 
-  # DELETE /subjects/1
-  # DELETE /subjects/1.json
   def destroy
-    @subject = Subject.find(params[:id])
+    @user = User.find(current_user.id)
+    @subject = @user.subjects.find(params[:id])
     @subject.destroy
 
     respond_to do |format|

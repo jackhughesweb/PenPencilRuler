@@ -23,15 +23,13 @@
   <header>
     <div class="maxwidth">
       <a href="/" class="home"><img src="<%= image_path("pencil.png") %>" width="50" height="50"> <span>Pen Pencil Ruler</span></a>
-      <div id="user_nav">
-        <% if user_signed_in? %>
-          Signed in as <%= current_user.email %>.
+        <span class="userinfo"><% if user_signed_in? %>
+          <span>Signed in as <%= current_user.email %>.</span>
           <%= link_to "Sign out", logout_path, :method => :delete %>
         <% else %>
           <a href="signup" class="signup">Sign up</a>
           <a href="login" class="login">Login</a>
-        <% end %>
-      </div>
+        <% end %></span>
     </div>
   </header>
   <div class="main">
