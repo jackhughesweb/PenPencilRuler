@@ -20,9 +20,10 @@
       <%= link_to "Pen Pencil Ruler", root_path, :class => "brand" %>
       <div class="nav-collapse collapse">
         <ul class="nav">
-          <li class="active"><%= link_to "Home", admin_path %></li>
+          <li class="<%= current_path(admin_path) %>"><%= link_to "Home", admin_path %></li>
+          <li class="<%= current_path(admin_users_path) %>"><%= link_to "Users", admin_users_path %></li>
         </ul>
-      </div><!--/.nav-collapse -->
+      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,16 @@
+<h1>Users</h1>
+<ul>
+  <% if params[:id].nil? %>
+    <% for user in @users %>
+      <li><%= link_to user.email, admin_users_path(user.id) %></li>
+    <% end %>
+  <% else %>
+    <li><%= link_to @user.email, admin_users_path(@user.id) %></li>
+  <% end %>
+</ul>
+
+<br>
+
+<% if params[:id].nil? %>
+  <%= paginate @users %>
+<% end %>

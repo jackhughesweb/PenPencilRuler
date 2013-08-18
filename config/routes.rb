@@ -14,7 +14,8 @@ Penpencilruler::Application.routes.draw do
     end
   end
 
-  get '/admin' => 'admin#index'
+  get '/admin' => 'admin#index', as: 'admin'
+  get '/admin/users(/:id)' => 'admin#users', as: 'admin_users'
 
   root :to => 'pages#index'
 

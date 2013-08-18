@@ -10,6 +10,17 @@ class AdminController < ApplicationController
     end
   end
 
+  def users
+    if params[:id].nil?
+      @users = User.order("created_at").page(params[:page]).per(2)
+    else
+      @user = User.find(params[:id])
+    end
+    respond_to do |format|
+      format.html {render :layout => 'admin'}
+    end
+  end
+
   private
 
   def validate_user
