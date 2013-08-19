@@ -1,0 +1,52 @@
+<h1>Users</h1>
+
+<%= form_tag('/admin/users', :method => 'get', :class => "form-search") do %>
+  <%= text_field "", :search, class: "input-medium search-query" %>
+  <button type="submit" class="btn">Search</button>
+<% end %>
+
+<%# Show individual user %>
+
+<% if !params[:id].nil? %>
+  <h3><%= @user.name %>
+    <% if @user.is_admin? %><span class='label label-success'>Admin</span><% end %>
+    <% if @user.is_suspended? %><span class='label label-important'>Suspended</span><% end %>
+    <% if !@user.confirmation_token.nil? %><span class='label label-info'>Unconfirmed</span><% end %>
+  </h3>
+  <p>Email: <%= @user.email %> (<%= "Confirmed at #{@user.confirmed_at}" if @user.confirmation_token.nil? %><%= "Unconfirmed - sent confirmation at #{@user.confirmation_sent_at}" if !@user.confirmation_token.nil? %>)</p>
+  <p>Sign in count: <%= @user.sign_in_count %></p>
+  <p>Current sign in: <%= @user.current_sign_in_at %> at <%= @user.current_sign_in_ip %></p>
+  <p>Last sign in: <%= @user.last_sign_in_at %> at <%= @user.last_sign_in_ip %></p>
+  <p>Account info: Created at <%= @user.created_at %> and updated at <%= @user.updated_at %></p>
+  <p>Admin: <%= @user.is_admin %></p>
+  <p>Suspended: <%= @user.is_suspended %><% if @user.is_suspended? %> by <%= User.find(@user.suspended_by).name %> (<%= User.find(@user.suspended_by).email %>)<% end %></p>
+  <% if !@user.is_admin? %>
+    <%= link_to "Become user", admin_become_path(@user.id), :class => "btn btn-warning" %>
+    <% if @user.is_suspended? %>
+      <%= link_to "Unsuspend user", admin_unsuspend_path(@user.id), :class => "btn btn-danger" %>
+    <% else %>
+      <%= link_to "Suspend user", admin_suspend_path(@user.id), :class => "btn btn-danger" %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%# List users %>
+
+<% if params[:id].nil? %>
+  <ul>
+    <% for user in @users %>
+      <li><%= link_to "#{user.name} (#{user.email})", admin_users_path(user.id) %>
+      <% if user.is_admin? %><span class='label label-success'>Admin</span><% end %>
+      <% if user.is_suspended? %><span class='label label-important'>Suspended</span><% end %>
+      <% if !user.confirmation_token.nil? %><span class='label label-info'>Unconfirmed</span><% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%# Paginate list of users %>
+
+<% if params[:id].nil? %>
+  <br>
+  <%= paginate @users %>
+<% end %>

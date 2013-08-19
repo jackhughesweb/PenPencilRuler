@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pen Pencil Ruler - Studying made easier</title>
+  <%= stylesheet_link_tag    "application-admin", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Pen Pencil Ruler", root_path, :class => "brand" %>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="<%= current_path(admin_path) %>"><%= link_to "Home", admin_path %></li>
+          <li class="<%= current_path(admin_users_path) %>"><%= link_to "Users", admin_users_path %></li>
+          <li class="<%= current_path(admin_support_path) %>"><%= link_to "Support", admin_support_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+     
+<div class="container">
+  <%= yield %>
+</div>
+</body>
+</html>
