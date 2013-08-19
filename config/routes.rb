@@ -17,6 +17,7 @@ Penpencilruler::Application.routes.draw do
   end
 
   get '/admin' => 'admin#index', as: 'admin'
+  get '/admin/users/search/:search' => 'admin#users', as: 'admin_userssearch'
   get '/admin/users(/:id)' => 'admin#users', as: 'admin_users'
   get '/admin/become/:id' => 'admin#become', as: 'admin_become'
   get '/admin/suspend/:id' => 'admin#suspend', as: 'admin_suspend'

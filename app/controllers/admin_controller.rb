@@ -12,7 +12,12 @@ class AdminController < ApplicationController
 
   def users
     if params[:id].nil?
-      @users = User.order("created_at").page(params[:page]).per(20)
+      if params[:search].nil?
+        @users = User.order("created_at").page(params[:page]).per(20)
+      else
+        @search = params[:search]
+        @users = User.where('name LIKE ? OR email LIKE ?', "%#{@search}%", "%#{@search}%").order("created_at").page(params[:page]).per(20)
+      end
     else
       @user = User.find(params[:id])
     end
@@ -23,15 +28,22 @@ class AdminController < ApplicationController
 
   def become
     return unless current_user.is_admin?
-    sign_in(:user, User.find(params[:id]), {:bypass => true})
-    redirect_to root_url
+    @becomeuser = User.find(params[:id])
+    if !@becomeuser.is_admin?
+      sign_in(:user, User.find(params[:id]), {:bypass => true})
+      redirect_to root_url
+    else
+      redirect_to admin_users_url(@becomeuser.id)
+    end
   end
 
   def suspend
     @suspenduser = User.find(params[:id])
-    @suspenduser.suspended_by = current_user.id
-    @suspenduser.is_suspended = true
-    @suspenduser.save
+    if !@suspenduser.is_admin?
+      @suspenduser.suspended_by = current_user.id
+      @suspenduser.is_suspended = true
+      @suspenduser.save
+    end
     redirect_to admin_users_url(@suspenduser.id)
   end
 

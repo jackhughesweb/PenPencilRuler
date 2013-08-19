@@ -1,5 +1,10 @@
 <h1>Users</h1>
 
+<%= form_tag('/admin/users', :method => 'get', :class => "form-search") do %>
+  <%= text_field "", :search, class: "input-medium search-query" %>
+  <button type="submit" class="btn">Search</button>
+<% end %>
+
 <%# Show individual user %>
 
 <% if !params[:id].nil? %>
