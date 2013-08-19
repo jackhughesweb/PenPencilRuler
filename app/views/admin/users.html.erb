@@ -14,11 +14,14 @@
   <p>Last sign in: <%= @user.last_sign_in_at %> at <%= @user.last_sign_in_ip %></p>
   <p>Account info: Created at <%= @user.created_at %> and updated at <%= @user.updated_at %></p>
   <p>Admin: <%= @user.is_admin %></p>
-  <%= link_to "Become user", admin_become_path(@user.id), :class => "btn btn-warning" %>
-  <% if @user.is_suspended? %>
-    <%= link_to "Unsuspend user", admin_unsuspend_path(@user.id), :class => "btn btn-danger" %>
-  <% else %>
-    <%= link_to "Suspend user", admin_suspend_path(@user.id), :class => "btn btn-danger" %>
+  <p>Suspended: <%= @user.is_suspended %><% if @user.is_suspended? %> by <%= User.find(@user.suspended_by).name %> (<%= User.find(@user.suspended_by).email %>)<% end %></p>
+  <% if !@user.is_admin? %>
+    <%= link_to "Become user", admin_become_path(@user.id), :class => "btn btn-warning" %>
+    <% if @user.is_suspended? %>
+      <%= link_to "Unsuspend user", admin_unsuspend_path(@user.id), :class => "btn btn-danger" %>
+    <% else %>
+      <%= link_to "Suspend user", admin_suspend_path(@user.id), :class => "btn btn-danger" %>
+    <% end %>
   <% end %>
 <% end %>
 

@@ -29,6 +29,7 @@ class AdminController < ApplicationController
 
   def suspend
     @suspenduser = User.find(params[:id])
+    @suspenduser.suspended_by = current_user.id
     @suspenduser.is_suspended = true
     @suspenduser.save
     redirect_to admin_users_url(@suspenduser.id)
@@ -36,6 +37,7 @@ class AdminController < ApplicationController
 
   def unsuspend
     @unsuspenduser = User.find(params[:id])
+    @unsuspenduser.suspended_by = ""
     @unsuspenduser.is_suspended = false
     @unsuspenduser.save
     redirect_to admin_users_url(@unsuspenduser.id)
