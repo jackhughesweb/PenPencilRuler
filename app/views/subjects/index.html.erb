@@ -1,13 +1,6 @@
-<h2>Subjects</h2>
-
-<ul>
 <% @subjects.each do |subject| %>
-  <li>
-    <%= link_to subject.name, subject_topics_path(subject) %>
-  </li>
+    <span class="buttongroup3"><span class="button"><%= subject.name %></span><%= link_to 'Topics', subject_topics_path(subject), class: "button" %><%= link_to 'Edit', edit_subject_path(subject), class: "button" %></span>
+    <br>
+    <br>
 <% end %>
-</ul>
-
-<br />
-
-<%= link_to 'New Subject', new_subject_path %>
+<%= link_to '+ New Subject', new_subject_path, class: "newsubjectbutton button" %>

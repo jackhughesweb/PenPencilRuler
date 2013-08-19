@@ -1,6 +1,7 @@
-<h1>Editing topic</h1>
-
 <%= render 'form' %>
 
-<%= link_to 'Show', subject_topic_path(@subject.id, @topic.id) %> |
-<%= link_to 'Back', subject_topics_path(@subject.id) %>
+<br>
+<%= link_to "Back to Topics", subject_topics_path(@subject), class: "button" %>
+<br>
+<br>
+<%= link_to "Delete Topic", [@subject, @topic], method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>

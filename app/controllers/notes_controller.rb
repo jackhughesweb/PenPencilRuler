@@ -110,4 +110,8 @@ class NotesController < ApplicationController
       redirect_to root_url, flash: { error: "You must be logged in to access this section"}
     end
   end
+
+  def set_title
+    @title = "Subjects"
+  end
 end

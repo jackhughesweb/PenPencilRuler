@@ -22,14 +22,18 @@
 
   <header>
     <div class="maxwidth">
-      <a href="/" class="home"><img src="<%= image_path("pencil.png") %>" width="50" height="50"> <span>Pen Pencil Ruler</span></a>
-        <span class="userinfo"><% if user_signed_in? %>
-          <span>Signed in as <%= current_user.email %>.</span>
-          <%= link_to "Sign out", logout_path %>
+      <span class="userinfo"><% if user_signed_in? %><input type="checkbox" id="usertoggle"><span class="expand">
+            <label for="usertoggle"><%= current_user.name %></label>
+            <%= link_to "Edit account", edit_user_registration_path %>
+            <%= link_to "Sign out", logout_path %>
+          </span>
         <% else %>
           <a href="signup" class="signup">Sign up</a>
           <a href="login" class="login">Login</a>
-        <% end %></span>
+        <% end %>
+      </span>
+      <a href="/" class="home"><img src="<%= image_path("pencil.png") %>" class="navlogo"></a>
+      <span class="navcurrent"><%= @title %></span>
     </div>
   </header>
   <div class="main">
@@ -39,7 +43,7 @@
 </div>
 <footer>
     <div class="maxwidth">
-      Created by <a href="http://www.jackhughesweb.com">Jack Hughes</a>
+      <a href="http://www.jackhughesweb.com" class="hint--top hint--rounded" data-hint="Created by Jack Hughes (@jackhughesweb)"><img src="<%= image_path('jh.png') %>" width="25" height="25"></a>
     </div>
   </footer>
 </body>

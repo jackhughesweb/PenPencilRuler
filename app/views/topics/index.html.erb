@@ -1,17 +1,9 @@
-<%= link_to 'Back to Subject List', subjects_path %>
+<%= link_to raw('&larr; Back to Subjects'), subjects_path, class: "button" %>
 <br>
 <br>
-<h2><%= @subject.name %> - Topics</h2>
-
-<ul>
 <% @topics.each do |topic| %>
-  <li>
-    <%= link_to topic.name, subject_topic_path(@subject, topic), class: "note-icon" %>
-  </li>
+    <span class="buttongroup3"><span class="button"><%= topic.name %></span><%= link_to 'Notes', subject_topic_notes_path(@subject, topic), class: "button" %><%= link_to 'Edit', edit_subject_topic_path(@subject, topic), class: "button" %></span>
+    <br>
+    <br>
 <% end %>
-</ul>
-
-<br />
-
-<%= link_to 'New Topic', new_subject_topic_path(@subject) %> |
-<%= link_to 'Edit Subject', edit_subject_path(@subject) %>
+<%= link_to '+ New Topic', new_subject_topic_path(@subject), class: "button" %>

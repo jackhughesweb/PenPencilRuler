@@ -8,6 +8,14 @@ Penpencilruler::Application.routes.draw do
     get '/logout' => 'devise/sessions#destroy'
     get '/signup' => 'devise/registrations#new'
     get '/login' => 'devise/sessions#new'
+    resource :registration,
+    only: [:new, :create, :edit, :update],
+    path: 'users',
+    path_names: { new: 'sign_up' },
+    controller: 'devise/registrations',
+    as: :user_registration do
+      get :cancel
+    end
   end
 
   resources :subjects do
@@ -24,6 +32,8 @@ Penpencilruler::Application.routes.draw do
   get '/admin/unsuspend/:id' => 'admin#unsuspend', as: 'admin_unsuspend'
 
   get '/admin/support' => redirect('http://www.ticketonrails.com/en/login'), as: 'admin_support'
+
+  get '/account' => 'devise/registrations#edit', as: 'account'
 
   root :to => 'pages#index'
 

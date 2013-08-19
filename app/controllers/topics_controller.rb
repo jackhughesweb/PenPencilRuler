@@ -4,6 +4,7 @@ class TopicsController < ApplicationController
   def index
     @user = User.find(current_user.id)
     @subject = @user.subjects.find(params[:subject_id])
+    @title = "#{@subject.name} Topics"
     @topics = @subject.topics
   end
   
@@ -14,12 +15,14 @@ class TopicsController < ApplicationController
   end
 
   def new
+    @title = "New Topic"
     @user = User.find(current_user.id)
     @subject = @user.subjects.find(params[:subject_id])
     @topic = @subject.topics.new
   end
 
   def edit
+    @title = "Edit Topic"
     @user = User.find(current_user.id)
     @subject = @user.subjects.find(params[:subject_id])
     @topic = @subject.topics.find(params[:id])
@@ -68,5 +71,9 @@ class TopicsController < ApplicationController
     unless user_signed_in?
       redirect_to root_url, flash: { error: "You must be logged in to access this section"}
     end
+  end
+
+  def set_title
+    @title = "Subjects"
   end
 end
