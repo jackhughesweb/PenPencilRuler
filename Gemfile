@@ -25,15 +25,6 @@ gem 'devise'
 
 gem 'redcarpet', '1.17.2'
 
-gem 'rspec-rails', :group => [:test, :development]
-group :test do
-  gem 'factory_girl_rails'
-  gem 'capybara'
-  gem 'guard-rspec'
-end
-
-gem 'kaminari'
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
