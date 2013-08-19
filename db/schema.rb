@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130816164229) do
+ActiveRecord::Schema.define(:version => 20130818182555) do
 
   create_table "notes", :force => true do |t|
     t.text     "text"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20130816164229) do
     t.string   "uid"
     t.string   "name"
     t.boolean  "is_admin",               :default => false
+    t.boolean  "is_suspended"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

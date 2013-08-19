@@ -1,5 +1,7 @@
 Penpencilruler::Application.routes.draw do
 
+  get '/suspended' => 'pages#suspended', as: 'suspended'
+
   devise_for :users
 
   devise_scope :user do
@@ -16,6 +18,11 @@ Penpencilruler::Application.routes.draw do
 
   get '/admin' => 'admin#index', as: 'admin'
   get '/admin/users(/:id)' => 'admin#users', as: 'admin_users'
+  get '/admin/become/:id' => 'admin#become', as: 'admin_become'
+  get '/admin/suspend/:id' => 'admin#suspend', as: 'admin_suspend'
+  get '/admin/unsuspend/:id' => 'admin#unsuspend', as: 'admin_unsuspend'
+
+  get '/admin/support' => redirect('http://www.ticketonrails.com/en/login'), as: 'admin_support'
 
   root :to => 'pages#index'
 
