@@ -227,6 +227,25 @@ header span.name{
   }
 }
 
+article.note{
+  color: #000;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0.3em;
+  border-radius: 0.5em;
+  border: 2px solid #000;
+  display: inline-block;
+  font-size: 1rem;
+  strong{
+    font-size: 1.4rem;
+    vertical-align: middle;
+  }
+  a{
+    vertical-align: middle;
+    float: right;
+    @include button(#000);
+  }
+}
+
 header > div.maxwidth > *{
   &.userinfo label, &.userinfo .expand a{
     @include button(#000);

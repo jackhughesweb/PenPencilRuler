@@ -1,6 +1,7 @@
-<h1>Editing note</h1>
-
 <%= render 'form' %>
 
-<%= link_to 'Show', subject_topic_note_path(@subject.id, @topic.id, @note.id) %> |
-<%= link_to 'Back', subject_topic_notes_path(@subject.id, @topic.id) %>
+<br>
+<%= link_to "Back to Notes", subject_topic_notes_path(@subject, @topic), class: "button" %>
+<br>
+<br>
+<%= link_to "Delete Note", [@subject, @topic, @note], method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
