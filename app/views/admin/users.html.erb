@@ -18,6 +18,7 @@
   <p>Current sign in: <%= @user.current_sign_in_at %> at <%= @user.current_sign_in_ip %></p>
   <p>Last sign in: <%= @user.last_sign_in_at %> at <%= @user.last_sign_in_ip %></p>
   <p>Account info: Created at <%= @user.created_at %> and updated at <%= @user.updated_at %></p>
+  <p>User Id: <%= @user.id %></p>
   <p>Admin: <%= @user.is_admin %></p>
   <p>Suspended: <%= @user.is_suspended %><% if @user.is_suspended? %> by <%= User.find(@user.suspended_by).name %> (<%= User.find(@user.suspended_by).email %>)<% end %></p>
   <% if !@user.is_admin? %>
