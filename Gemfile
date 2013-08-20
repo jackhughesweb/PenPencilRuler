@@ -25,6 +25,8 @@ gem 'devise'
 
 gem 'redcarpet', '1.17.2'
 
+gem 'kaminari'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
