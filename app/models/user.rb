@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
   # attr_accessible :title, :body
   has_many :subjects, dependent: :delete_all
+  has_many :topics, dependent: :delete_all
+  has_many :notes, dependent: :delete_all
 end

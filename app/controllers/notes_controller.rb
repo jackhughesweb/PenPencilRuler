@@ -46,6 +46,7 @@ class NotesController < ApplicationController
     @subject = @user.subjects.find(params[:subject_id])
     @topic = @subject.topics.find(params[:topic_id])
     @note = Note.new(params[:note])
+    @note.user_id = current_user.id
 
     respond_to do |format|
       if @note.save

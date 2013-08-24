@@ -24,6 +24,7 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(params[:topic])
+    @topic.user_id = current_user.id
     respond_to do |format|
       if @topic.save
         format.html { redirect_to subject_topics_path(@topic.subject_id), notice: 'Topic was successfully created.' }
