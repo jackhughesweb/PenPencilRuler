@@ -7,12 +7,6 @@ class TopicsController < ApplicationController
     @title = "#{@subject.name} Topics"
     @topics = @subject.topics
   end
-  
-  def show
-    @user = User.find(current_user.id)
-    @subject = @user.subjects.find(params[:subject_id])
-    @topic = @subject.topics.find(params[:id])
-  end
 
   def new
     @title = "New Topic"
@@ -32,7 +26,7 @@ class TopicsController < ApplicationController
     @topic = Topic.new(params[:topic])
     respond_to do |format|
       if @topic.save
-        format.html { redirect_to subject_topic_path(@topic.subject_id, @topic.id), notice: 'Topic was successfully created.' }
+        format.html { redirect_to subject_topics_path(@topic.subject_id), notice: 'Topic was successfully created.' }
       else
         format.html { render action: "new" }
       end
@@ -46,7 +40,7 @@ class TopicsController < ApplicationController
 
     respond_to do |format|
       if @topic.update_attributes(params[:topic])
-        format.html { redirect_to subject_topic_path(@topic.subject_id, @topic.id), notice: 'Topic was successfully updated.' }
+        format.html { redirect_to subject_topics_path(@topic.subject_id), notice: 'Topic was successfully updated.' }
       else
         format.html { render action: "edit" }
       end

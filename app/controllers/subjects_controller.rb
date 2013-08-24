@@ -47,7 +47,7 @@ class SubjectsController < ApplicationController
 
     respond_to do |format|
       if @subject.update_attributes(params[:subject])
-        format.html { redirect_to subject_topics_url(@subject), notice: 'Subject was successfully updated.' }
+        format.html { redirect_to subjects_url, notice: 'Subject was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

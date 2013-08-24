@@ -15,19 +15,6 @@ class NotesController < ApplicationController
     end
   end
 
-  # GET /notes/1
-  # GET /notes/1.json
-  def show
-    @user = User.find(current_user.id)
-    @subject = @user.subjects.find(params[:subject_id])
-    @topic = @subject.topics.find(params[:topic_id])
-    @note = @topic.notes.find(params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @note }
-    end
-  end
-
   # GET /notes/new
   # GET /notes/new.json
   def new
