@@ -110,7 +110,8 @@ div.main{
 
 a.login, a.signup{
   width: 5em;
-  @include button(#563e26);
+  // old colour 563e26
+  @include button(#000);
   text-align: center;
   margin: 0.5em;
 }
@@ -132,7 +133,7 @@ header{
 
 img.hero{
   width: 100%;
-  max-width: 30em;
+  max-width: 50em;
   height: auto;
   display: inline-block;
 }
@@ -285,5 +286,30 @@ header > div.maxwidth > *{
   }
   &.navcurrent, &.home{
     display: inline;
+  }
+}
+
+div.main.index .large{
+  font-size: 1.4em;
+}
+
+div.main.index p.center.buttons{
+  padding-bottom: 1em;
+  border-bottom: 1px solid #000;
+}
+
+article.indexinfo30{
+  vertical-align: top;
+  width: 30%;
+  display: inline-block;
+  @media screen and (max-width: 30em){
+    display: block;
+    width: 100%;
+  }
+  img{
+    max-width: 140px;
+  }
+  p, p *{
+    font-size: 1.2rem;
   }
 }
