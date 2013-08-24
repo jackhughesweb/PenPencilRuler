@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130824100158) do
+ActiveRecord::Schema.define(:version => 20130824142354) do
 
   create_table "notes", :force => true do |t|
     t.text     "text"
@@ -54,12 +54,12 @@ ActiveRecord::Schema.define(:version => 20130824100158) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name"
     t.boolean  "is_admin",               :default => false
-    t.boolean  "is_suspended"
+    t.boolean  "is_suspended",           :default => false
     t.integer  "suspended_by"
+    t.boolean  "deletion_allowed",       :default => false
+    t.string   "name"
+    t.integer  "deletion_by"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

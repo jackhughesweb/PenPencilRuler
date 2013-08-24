@@ -55,6 +55,24 @@ class AdminController < ApplicationController
     redirect_to admin_users_url(@unsuspenduser.id)
   end
 
+  def allowdeletion
+    @allowdeletionuser = User.find(params[:id])
+    if !@allowdeletionuser.is_admin?
+      @allowdeletionuser.deletion_by = current_user.id
+      @allowdeletionuser.deletion_allowed = true
+      @allowdeletionuser.save
+    end
+    redirect_to admin_users_url(@allowdeletionuser.id)
+  end
+
+  def preventdeletion
+    @preventdeletionuser = User.find(params[:id])
+    @preventdeletionuser.deletion_by = ""
+    @preventdeletionuser.deletion_allowed = false
+    @preventdeletionuser.save
+    redirect_to admin_users_url(@preventdeletionuser.id)
+  end
+
   private
 
   def validate_user

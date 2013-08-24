@@ -12,6 +12,7 @@
     <% if @user.is_admin? %><span class='label label-success'>Admin</span><% end %>
     <% if @user.is_suspended? %><span class='label label-important'>Suspended</span><% end %>
     <% if !@user.confirmation_token.nil? %><span class='label label-info'>Unconfirmed</span><% end %>
+    <% if @user.deletion_allowed? %><span class='label label-important'>Deletion Allowed</span><% end %>
   </h3>
   <p>Email: <%= @user.email %> (<%= "Confirmed at #{@user.confirmed_at}" if @user.confirmation_token.nil? %><%= "Unconfirmed - sent confirmation at #{@user.confirmation_sent_at}" if !@user.confirmation_token.nil? %>)</p>
   <p>Sign in count: <%= @user.sign_in_count %></p>
@@ -21,12 +22,18 @@
   <p>User Id: <%= @user.id %></p>
   <p>Admin: <%= @user.is_admin %></p>
   <p>Suspended: <%= @user.is_suspended %><% if @user.is_suspended? %> by <%= User.find(@user.suspended_by).name %> (<%= User.find(@user.suspended_by).email %>)<% end %></p>
+  <p>Deletion allowed: <%= @user.deletion_allowed %><% if @user.deletion_allowed? %> by <%= User.find(@user.deletion_by).name %> (<%= User.find(@user.deletion_by).email %>)<% end %></p>
   <% if !@user.is_admin? %>
-    <%= link_to "Become user", admin_become_path(@user.id), :class => "btn btn-warning" %>
+    <%= link_to "Become user", admin_become_path(@user.id), :class => "btn btn-success" %>
     <% if @user.is_suspended? %>
-      <%= link_to "Unsuspend user", admin_unsuspend_path(@user.id), :class => "btn btn-danger" %>
+      <%= link_to "Unsuspend user", admin_unsuspend_path(@user.id), :class => "btn btn-warning" %>
     <% else %>
-      <%= link_to "Suspend user", admin_suspend_path(@user.id), :class => "btn btn-danger" %>
+      <%= link_to "Suspend user", admin_suspend_path(@user.id), :class => "btn btn-warning" %>
+    <% end %>
+    <% if @user.deletion_allowed? %>
+      <%= link_to "Prevent deletion", admin_preventdeletion_path(@user.id), :class => "btn btn-danger" %>
+    <% else %>
+      <%= link_to "Allow deletion", admin_allowdeletion_path(@user.id), :class => "btn btn-danger" %>
     <% end %>
   <% end %>
 <% end %>
@@ -40,6 +47,7 @@
       <% if user.is_admin? %><span class='label label-success'>Admin</span><% end %>
       <% if user.is_suspended? %><span class='label label-important'>Suspended</span><% end %>
       <% if !user.confirmation_token.nil? %><span class='label label-info'>Unconfirmed</span><% end %>
+      <% if user.deletion_allowed? %><span class='label label-important'>Deletion Allowed</span><% end %>
       </li>
     <% end %>
   </ul>

@@ -27,5 +27,9 @@
 <br>
 <h3>Cancel my account</h3>
 
-<p>Please email <a href="mailto:support@penpencilruler.com">support@penpencilruler.com</a> to cancel your account</p>
+<% if current_user.deletion_allowed? %>
+  <p><%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+<% else %>
+  <p>Please email <a href="mailto:support@penpencilruler.com">support@penpencilruler.com</a> to cancel your account</p>
+<% end %>
 
