@@ -8,29 +8,17 @@ class NotesController < ApplicationController
     @subject = @user.subjects.find(params[:subject_id])
     @topic = @subject.topics.find(params[:topic_id])
     @notes = @topic.notes
-
+    @title = "#{@subject.name} - #{@topic.name} Notes"
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @notes }
     end
   end
 
-  # GET /notes/1
-  # GET /notes/1.json
-  def show
-    @user = User.find(current_user.id)
-    @subject = @user.subjects.find(params[:subject_id])
-    @topic = @subject.topics.find(params[:topic_id])
-    @note = @topic.notes.find(params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @note }
-    end
-  end
-
   # GET /notes/new
   # GET /notes/new.json
   def new
+    @title = "New Note"
     @user = User.find(current_user.id)
     @subject = @user.subjects.find(params[:subject_id])
     @topic = @subject.topics.find(params[:topic_id])
@@ -44,6 +32,7 @@ class NotesController < ApplicationController
 
   # GET /notes/1/edit
   def edit
+    @title = "Edit Note"
     @user = User.find(current_user.id)
     @subject = @user.subjects.find(params[:subject_id])
     @topic = @subject.topics.find(params[:topic_id])
@@ -57,10 +46,11 @@ class NotesController < ApplicationController
     @subject = @user.subjects.find(params[:subject_id])
     @topic = @subject.topics.find(params[:topic_id])
     @note = Note.new(params[:note])
+    @note.user_id = current_user.id
 
     respond_to do |format|
       if @note.save
-        format.html { redirect_to subject_topic_note_path(@subject.id, @topic.id, @note.id), notice: 'Note was successfully created.' }
+        format.html { redirect_to subject_topic_notes_path(@subject.id, @topic.id), notice: 'Note was successfully created.' }
         format.json { render json: @note, status: :created, location: @note }
       else
         format.html { render action: "new" }
@@ -79,7 +69,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.update_attributes(params[:note])
-        format.html { redirect_to subject_topic_note_path(@subject.id, @topic.id, @note.id), notice: 'Note was successfully updated.' }
+        format.html { redirect_to subject_topic_notes_path(@subject.id, @topic.id), notice: 'Note was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -109,5 +99,9 @@ class NotesController < ApplicationController
     unless user_signed_in?
       redirect_to root_url, flash: { error: "You must be logged in to access this section"}
     end
+  end
+
+  def set_title
+    @title = "Subjects"
   end
 end

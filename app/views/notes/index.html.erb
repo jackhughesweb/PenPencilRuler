@@ -1,26 +1,15 @@
-<%= link_to 'Back to Topic List', subject_topic_path(@subject) %>
+<%= link_to raw('&larr; Back to Topics'), subject_topics_path(@subject), class: "button" %>
 <br>
 <br>
-<h2><%= @subject.name %> - <%= @topic.name %></h2>
-
-<table>
-  <tr>
-    <th>Text</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @notes.each do |note| %>
-  <tr>
-    <td><%= note.text %></td>
-    <td><%= link_to 'Show', subject_topic_note_path(@subject.id, @topic.id, note.id) %></td>
-    <td><%= link_to 'Edit', edit_subject_topic_note_path(@subject.id, @topic.id, note.id) %></td>
-    <td><%= link_to 'Destroy', [@subject, @topic, note], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+    <article class="note">
+      <strong><%= note.title %></strong>
+      <%= link_to 'Edit', edit_subject_topic_note_path(@subject, @topic, note) %>
+      <br>
+      <br>
+      <%= note.text %>
+    </article>
+    <br>
+    <br>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Note', new_subject_topic_note_path(@subject.id, @topic.id) %>
+<%= link_to '+ New Note', new_subject_topic_note_path(@subject, @topic), class: "button" %>

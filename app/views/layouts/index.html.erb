@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Pen Pencil Ruler - Studying made easier</title>
+  <link rel="shortcut icon" href="<%= image_path('pencil.png') %>">
   <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application-main", :media => "all" %>
   <%= javascript_include_tag "application" %>
@@ -20,9 +21,13 @@
 <% end %>
 <%= yield %>
 <footer>
-    <div class="maxwidth">
-      Created by <a href="http://www.jackhughesweb.com">Jack Hughes</a>
-    </div>
-  </footer>
+  <div class="maxwidth">
+    <a href="http://www.jackhughesweb.com" class="hint--top hint--rounded" data-hint="Created by Jack Hughes (@jackhughesweb)"><img src="<%= image_path('jh.png') %>" width="25" height="25"></a>
+    <br>
+    <%= link_to "Terms of Service", terms_url %>
+    -
+    <%= link_to "Privacy Policy", privacy_url %>
+  </div>
+</footer>
 </body>
 </html>

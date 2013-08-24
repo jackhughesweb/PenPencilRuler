@@ -1,5 +1,4 @@
-<h2>Login</h2>
-
+<% @title = "Login" %>
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <div><%= f.label :email %> (<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %><%= link_to "Resend confirmation", new_confirmation_path(resource_name) %><% end -%>)<br />
   <%= f.email_field :email, :autofocus => true %></div>

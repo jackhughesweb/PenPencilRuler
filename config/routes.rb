@@ -1,13 +1,24 @@
 Penpencilruler::Application.routes.draw do
 
+  get '/terms' => 'pages#terms'
+  get '/privacy' => 'pages#privacy'
+  get '/copyright' => 'pages#copyright'
   get '/suspended' => 'pages#suspended', as: 'suspended'
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "users/registrations"}
 
   devise_scope :user do
     get '/logout' => 'devise/sessions#destroy'
     get '/signup' => 'devise/registrations#new'
     get '/login' => 'devise/sessions#new'
+    resource :registration,
+    only: [:new, :create, :edit, :update],
+    path: 'users',
+    path_names: { new: 'sign_up' },
+    controller: 'devise/registrations',
+    as: :user_registration do
+      get :cancel
+    end
   end
 
   resources :subjects do
@@ -22,6 +33,8 @@ Penpencilruler::Application.routes.draw do
   get '/admin/become/:id' => 'admin#become', as: 'admin_become'
   get '/admin/suspend/:id' => 'admin#suspend', as: 'admin_suspend'
   get '/admin/unsuspend/:id' => 'admin#unsuspend', as: 'admin_unsuspend'
+  get '/admin/allowdeletion/:id' => 'admin#allowdeletion', as: 'admin_allowdeletion'
+  get '/admin/preventdeletion/:id' => 'admin#preventdeletion', as: 'admin_preventdeletion'
 
   get '/admin/support' => redirect('http://www.ticketonrails.com/en/login'), as: 'admin_support'
 

@@ -4,22 +4,19 @@ class TopicsController < ApplicationController
   def index
     @user = User.find(current_user.id)
     @subject = @user.subjects.find(params[:subject_id])
+    @title = "#{@subject.name} Topics"
     @topics = @subject.topics
-  end
-  
-  def show
-    @user = User.find(current_user.id)
-    @subject = @user.subjects.find(params[:subject_id])
-    @topic = @subject.topics.find(params[:id])
   end
 
   def new
+    @title = "New Topic"
     @user = User.find(current_user.id)
     @subject = @user.subjects.find(params[:subject_id])
     @topic = @subject.topics.new
   end
 
   def edit
+    @title = "Edit Topic"
     @user = User.find(current_user.id)
     @subject = @user.subjects.find(params[:subject_id])
     @topic = @subject.topics.find(params[:id])
@@ -27,9 +24,10 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(params[:topic])
+    @topic.user_id = current_user.id
     respond_to do |format|
       if @topic.save
-        format.html { redirect_to subject_topic_path(@topic.subject_id, @topic.id), notice: 'Topic was successfully created.' }
+        format.html { redirect_to subject_topics_path(@topic.subject_id), notice: 'Topic was successfully created.' }
       else
         format.html { render action: "new" }
       end
@@ -43,7 +41,7 @@ class TopicsController < ApplicationController
 
     respond_to do |format|
       if @topic.update_attributes(params[:topic])
-        format.html { redirect_to subject_topic_path(@topic.subject_id, @topic.id), notice: 'Topic was successfully updated.' }
+        format.html { redirect_to subject_topics_path(@topic.subject_id), notice: 'Topic was successfully updated.' }
       else
         format.html { render action: "edit" }
       end
@@ -68,5 +66,9 @@ class TopicsController < ApplicationController
     unless user_signed_in?
       redirect_to root_url, flash: { error: "You must be logged in to access this section"}
     end
+  end
+
+  def set_title
+    @title = "Subjects"
   end
 end

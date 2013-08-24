@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<% @title = "Sign up" %>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -17,5 +17,7 @@
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>
+
+<p>By signing up, you agree to the <%= link_to "Terms of Service", terms_path %></p>
 
 <%= render "devise/shared/links" %>
