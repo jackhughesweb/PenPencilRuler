@@ -1,5 +1,10 @@
-<p>Welcome <%= @email %>!</p>
+
+
+<a href="http://www.penpencilruler.com" style="vertical-align: middle;"><img src="http://www.penpencilruler.com/assets/pencil-a14c6f028f249f95f15ecfc5cba1c1b4.png" style="width: 50px; height: 50px; border: 2px solid #ccc; border-radius: 10em;"></a><br>
+<span style="font-size: 1.5em; display: inline-block; vertical-align: middle;">Welcome to Pen Pencil Ruler <%= @email %>!</span>
 
 <p>You can confirm your account email through the link below:</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+
+

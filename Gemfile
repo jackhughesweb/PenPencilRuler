@@ -26,6 +26,8 @@ gem 'redcarpet', '1.17.2'
 
 gem 'kaminari'
 
+gem 'postmark-rails', '~> 0.5.2'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -40,3 +42,6 @@ gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'
+
+gem 'newrelic_rpm'
+
