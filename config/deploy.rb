@@ -1,6 +1,6 @@
 require "bundler/capistrano"
 
-server "37.139.19.79", :web, :app, :db, primary: true
+server "IPADDRESS", :web, :app, :db, primary: true
 
 set :application, "penpencilruler"
 set :user, "deployer"
@@ -36,6 +36,7 @@ namespace :deploy do
 
   task :symlink_config, roles: :app do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    run "ln -nfs #{shared_path}/config/newrelic.yml #{release_path}/config/newrelic.yml"
   end
   after "deploy:finalize_update", "deploy:symlink_config"
 

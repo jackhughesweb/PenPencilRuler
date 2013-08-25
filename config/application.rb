@@ -14,8 +14,7 @@ module Penpencilruler
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    config.assets.precompile += ['javascripts/*']
-    config.assets.precompile += ['styleshhets/*']
+    
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
 
@@ -59,5 +58,9 @@ module Penpencilruler
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.action_mailer.delivery_method = :postmark
+    config.action_mailer.postmark_settings = { :api_key => ENV['POSTMARK'] }
+    config.action_mailer.default_url_options = { :host => 'www.penpencilruler.com' }
   end
 end
