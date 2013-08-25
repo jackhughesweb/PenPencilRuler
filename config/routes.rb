@@ -37,7 +37,9 @@ Penpencilruler::Application.routes.draw do
   get '/admin/allowdeletion/:id' => 'admin#allowdeletion', as: 'admin_allowdeletion'
   get '/admin/preventdeletion/:id' => 'admin#preventdeletion', as: 'admin_preventdeletion'
 
-  get '/admin/support' => redirect('http://www.ticketonrails.com/en/login'), as: 'admin_support'
+  get '/admin/support' => redirect('https://secure.helpscout.net'), as: 'admin_support'
+  get '/admin/newrelic' => redirect('https://rpm.newrelic.com'), as: 'admin_newrelic'
+  get '/admin/postmarkapp' => redirect('https://postmarkapp.com'), as: 'admin_postmarkapp'
 
   root :to => 'pages#index'
 
