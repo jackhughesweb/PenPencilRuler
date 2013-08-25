@@ -2,7 +2,7 @@
 <br>
 <br>
 <% @topics.each do |topic| %>
-    <span class="buttongroup3"><span class="button"><%= topic.name %></span><%= link_to 'Notes', subject_topic_notes_path(@subject, topic), class: "button" %><%= link_to 'Edit', edit_subject_topic_path(@subject, topic), class: "button" %></span>
+    <span class="buttongroup3"><span class="button"><%= topic.name %></span><%= link_to 'View Notes', subject_topic_notes_path(@subject, topic), class: "button" %><%= link_to 'Edit', edit_subject_topic_path(@subject, topic), class: "button" %></span>
     <br>
     <br>
 <% end %>

@@ -1,5 +1,5 @@
 <% @subjects.each do |subject| %>
-    <span class="buttongroup3"><span class="button"><%= subject.name %></span><%= link_to 'Topics', subject_topics_path(subject), class: "button" %><%= link_to 'Edit', edit_subject_path(subject), class: "button" %></span>
+    <span class="buttongroup3"><span class="button"><%= subject.name %></span><%= link_to 'View Topics', subject_topics_path(subject), class: "button" %><%= link_to 'Edit', edit_subject_path(subject), class: "button" %></span>
     <br>
     <br>
 <% end %>
