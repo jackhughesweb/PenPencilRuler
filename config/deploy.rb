@@ -9,7 +9,7 @@ set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
-set :repository, "git@github.com:jackhughesweb/#{application}.git"
+set :repository, "git@github.com:jackhughesweb/PenPencilRuler.git"
 set :branch, "master"
 
 default_run_options[:pty] = true
