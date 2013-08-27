@@ -1,15 +1,26 @@
 <%= link_to raw('&larr; Back to Topics'), subject_topics_path(@subject), class: "button" %>
 <br>
 <br>
+<a href="#" class="showall">Show All</a><a href="#" class="hideall">Hide All</a>
+<br>
+<br>
+</div>
+</div>
 <% @notes.each do |note| %>
     <article class="note">
-      <strong><%= note.title %></strong>
-      <%= link_to 'Edit', edit_subject_topic_note_path(@subject, @topic, note) %>
-      <br>
-      <br>
-      <%= markdown(note.text) %>
+      <div class="maxwidth">
+        <strong><%= note.title %></strong>
+        <a href="#" class="show">Show</a>
+        <a href="#" class="hide">Hide</a>
+        <%= link_to 'Edit', edit_subject_topic_note_path(@subject, @topic, note), class: 'edit' %>
+        <br>
+        <br>
+        <div class="text"><%= markdown(note.text) %></div>
+      </div>
     </article>
     <br>
     <br>
 <% end %>
+<div class="main">
+<div class="maxwidth">
 <%= link_to '+ New Note', new_subject_topic_note_path(@subject, @topic), class: "button" %>

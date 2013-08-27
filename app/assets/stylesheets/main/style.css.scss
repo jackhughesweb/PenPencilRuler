@@ -228,12 +228,24 @@ header span.name{
   }
 }
 
+a.hideall, a.showall{
+  vertical-align: middle;
+  color: #bbb;
+  -webkit-transition: all .4s ease-in-out;
+  &:hover{
+    -webkit-transition: all .01s ease-in-out;
+    color: #444;
+  }
+}
+
+a.hideall{
+  display: none;
+}
+
 article.note{
   color: #000;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: #fff;
   padding: 0.3em;
-  border-radius: 0.5em;
-  border: 2px solid #000;
   display: inline-block;
   font-size: 1rem;
   width: 100%;
@@ -241,10 +253,21 @@ article.note{
     font-size: 1.4rem;
     vertical-align: middle;
   }
-  a{
+  div.text{
+    display: none;
+  }
+  a.hide{
+    display: none;
+  }
+  a.hide, a.show, a.edit{
+    margin-left: 0.5em;
     vertical-align: middle;
-    float: right;
-    @include button(#000);
+    color: #bbb;
+    -webkit-transition: all .4s ease-in-out;
+    &:hover{
+      -webkit-transition: all .01s ease-in-out;
+      color: #444;
+    }
   }
 }
 

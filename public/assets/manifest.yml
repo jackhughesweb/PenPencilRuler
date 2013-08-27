@@ -7,8 +7,14 @@ hero.png: hero-dcf7dbcdfb8999b5d986914a68e6077b.png
 hero/index.png: hero-dcf7dbcdfb8999b5d986914a68e6077b.png
 hero.svg: hero-e53ca0f982f3ea03dbe0820337a99a5d.svg
 hero/index.svg: hero-e53ca0f982f3ea03dbe0820337a99a5d.svg
+iconmonstr-bug-3-icon.png: iconmonstr-bug-3-icon-ce727b9437d579e94174734e05af9151.png
+iconmonstr-bug-3-icon/index.png: iconmonstr-bug-3-icon-ce727b9437d579e94174734e05af9151.png
 iconmonstr-full-folder-icon.png: iconmonstr-full-folder-icon-10ebf5e6da6cf942e5986400610fbe8f.png
 iconmonstr-full-folder-icon/index.png: iconmonstr-full-folder-icon-10ebf5e6da6cf942e5986400610fbe8f.png
+iconmonstr-help-5-icon.png: iconmonstr-help-5-icon-b334b1de7ff8cded163e4086346fd5e6.png
+iconmonstr-help-5-icon/index.png: iconmonstr-help-5-icon-b334b1de7ff8cded163e4086346fd5e6.png
+iconmonstr-light-bulb-17-icon.png: iconmonstr-light-bulb-17-icon-a4c6169a1f389c7a7903819b006f1887.png
+iconmonstr-light-bulb-17-icon/index.png: iconmonstr-light-bulb-17-icon-a4c6169a1f389c7a7903819b006f1887.png
 iconmonstr-lock-3-icon.png: iconmonstr-lock-3-icon-3c4ad807f47480477fa8412207d2cec6.png
 iconmonstr-lock-3-icon/index.png: iconmonstr-lock-3-icon-3c4ad807f47480477fa8412207d2cec6.png
 iconmonstr-text-file-3-icon.png: iconmonstr-text-file-3-icon-5de17d73a091c0a624a199f4f337d61e.png
@@ -25,7 +31,7 @@ application.js: application-051a0eb740db081ff8c2dc9c93a1c144.js
 application/index.js: application-051a0eb740db081ff8c2dc9c93a1c144.js
 application-admin.css: application-admin-8e389312465ba1cc540e5cc2f049f836.css
 application-admin/index.css: application-admin-8e389312465ba1cc540e5cc2f049f836.css
-application-main.css: application-main-5ebb45c29bbb6c8c76eccd90fbe945f9.css
-application-main/index.css: application-main-5ebb45c29bbb6c8c76eccd90fbe945f9.css
+application-main.css: application-main-f33a7688c2d33438d29bfe5b166a4aae.css
+application-main/index.css: application-main-f33a7688c2d33438d29bfe5b166a4aae.css
 jquery.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 jquery/index.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
