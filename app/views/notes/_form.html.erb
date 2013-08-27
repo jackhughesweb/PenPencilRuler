@@ -16,7 +16,7 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :text %><br />
+    <%= f.label :text %> (Markdown supported)<br />
     <%= f.text_area :text %>
   </div>
   <%= f.hidden_field :topic_id, :value => params[:topic_id] %>
