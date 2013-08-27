@@ -7,7 +7,7 @@
       <%= link_to 'Edit', edit_subject_topic_note_path(@subject, @topic, note) %>
       <br>
       <br>
-      <%= note.text %>
+      <%= markdown(note.text) %>
     </article>
     <br>
     <br>
