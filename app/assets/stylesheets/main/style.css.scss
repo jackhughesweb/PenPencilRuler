@@ -341,6 +341,21 @@ article.indexinfo30{
   }
 }
 
+.feedback article.indexinfo30{
+  @media screen and (max-width: 55em){
+    p, p *{
+      font-size: 1rem;
+    }
+  }
+  @media screen and (max-width: 45em){
+    p, p *{
+      font-size: 1.2rem;
+    }
+    display: block;
+    width: 100%;
+  }
+}
+
 footer a{
   color: #000;
 }
