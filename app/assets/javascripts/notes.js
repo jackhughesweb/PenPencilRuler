@@ -13,14 +13,14 @@ $(document).ready(function() {
   });
   $("a.showall").click(function(e) {
     $("article.note div.text").slideDown();
-    $("a.showall").hide();
-    $("a.hideall").show();
+    $("article.note a.show").hide();
+    $("article.note a.hide").show();
     e.preventDefault();
   });
   $("a.hideall").click(function(e) {
     $("article.note div.text").slideUp();
-    $("a.hideall").hide();
-    $("a.showall").show();
+    $("article.note a.hide").hide();
+    $("article.note a.show").show();
     e.preventDefault();
   });
 });
