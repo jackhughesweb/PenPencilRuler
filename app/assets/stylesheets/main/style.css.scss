@@ -272,10 +272,6 @@ a.hideall, a.showall{
   }
 }
 
-a.hideall{
-  display: none;
-}
-
 article.note{
   color: #000;
   background-color: #fff;
@@ -288,10 +284,9 @@ article.note{
     vertical-align: middle;
   }
   div.text{
-    display: none;
     margin-top: 0.5em;
   }
-  a.hide{
+  a.show{
     display: none;
   }
   a.hide, a.show, a.edit{
