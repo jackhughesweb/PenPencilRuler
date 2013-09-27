@@ -9,7 +9,7 @@
 <% @notes.each do |note| %>
     <article class="note">
       <div class="maxwidth">
-        <strong><%= note.title %></strong>
+        <strong class="header"><%= note.title %></strong>
         <a href="#" class="show">Show</a>
         <a href="#" class="hide">Hide</a>
         <%= link_to 'Edit', edit_subject_topic_note_path(@subject, @topic, note), class: 'edit' %>
