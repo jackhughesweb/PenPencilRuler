@@ -165,11 +165,28 @@ div.index{
   }
 }
 
-div.alert-message{
-  color: #ff0000;
-  border-radius: 0.5em;
-  border: 2px solid #ff0000;
-  text-align: center;
+div.alert{
+  p{
+    margin: 0;
+  }
+  border-bottom: 1px solid #fff;
+  &.alert-error{
+    @include gradient(rgba(255, 0, 0, 0.8));
+  }
+  &.alert-success{
+    @include gradient(rgba(0, 255, 0, 0.8));
+  }
+  span.alert-close{
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0.5em;
+    margin-right: 0.5em;
+    border-radius: 0.2em;
+    cursor: pointer;
+    &:hover{
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
 }
 
 footer{
@@ -269,6 +286,7 @@ article.note{
   }
   div.text{
     display: none;
+    margin-top: 0.5em;
   }
   a.hide{
     display: none;
