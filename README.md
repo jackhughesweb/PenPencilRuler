@@ -1,13 +1,13 @@
-## penpencilruler
+## pen pencil ruler
 a simple way to revise notes
 
-![PenPencilRuler Logo](app/assets/images/hero.png)
+![Pen Pencil Ruler Logo](app/assets/images/hero.png)
 
 ## Description
 
-PenPencilRuler organises revision notes into topics and subjects and displays these notes.
+Pen Pencil Ruler organises revision notes into topics and subjects and displays these notes.
 
-Since revision notes need to be accessed wherever a user is, PenPencilRuler uses a web interface to allow this.
+Since revision notes need to be accessed wherever a user is, Pen Pencil Ruler uses a web interface to allow this.
 
 ## Requirements
 
