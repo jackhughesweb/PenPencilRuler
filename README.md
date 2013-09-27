@@ -9,8 +9,6 @@ PenPencilRuler organises revision notes into topics and subjects and displays th
 
 Since revision notes need to be accessed wherever a user is, PenPencilRuler uses a web interface to allow this.
 
-PenPencilRuler uses [Semantic Versioning](http://semver.org/) and [TomDoc](http://tomdoc.org/).
-
 ## Requirements
 
 * Ruby 2.0.0
