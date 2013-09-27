@@ -7,7 +7,7 @@ class NotesController < ApplicationController
     @user = User.find(current_user.id)
     @subject = @user.subjects.find(params[:subject_id])
     @topic = @subject.topics.find(params[:topic_id])
-    @notes = @topic.notes
+    @notes = @topic.notes.order("id")
     @title = "#{@subject.name} - #{@topic.name} Notes"
     respond_to do |format|
       format.html # index.html.erb

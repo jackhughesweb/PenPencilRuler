@@ -5,7 +5,7 @@ class TopicsController < ApplicationController
     @user = User.find(current_user.id)
     @subject = @user.subjects.find(params[:subject_id])
     @title = "#{@subject.name} Topics"
-    @topics = @subject.topics
+    @topics = @subject.topics.order("id")
   end
 
   def new

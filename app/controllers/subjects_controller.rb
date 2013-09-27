@@ -4,7 +4,7 @@ class SubjectsController < ApplicationController
   def index
     @title = "Subjects"
     @user = User.find(current_user.id)
-    @subjects = @user.subjects.all
+    @subjects = @user.subjects.order("id")
 
     respond_to do |format|
       format.html
