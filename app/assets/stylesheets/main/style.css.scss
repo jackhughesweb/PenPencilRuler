@@ -120,14 +120,13 @@ a.login, a.signup{
 }
 
 header{
-  background-color: #aaa;
-  background: -moz-linear-gradient(top,  rgba(0,0,0,0.14) 0%, rgba(0,0,0,0.27) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.14)), color-stop(100%,rgba(0,0,0,0.27))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(0,0,0,0.14) 0%,rgba(0,0,0,0.27) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(0,0,0,0.14) 0%,rgba(0,0,0,0.27) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(0,0,0,0.14) 0%,rgba(0,0,0,0.27) 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  rgba(0,0,0,0.14) 0%,rgba(0,0,0,0.27) 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#24000000', endColorstr='#45000000',GradientType=0 ); /* IE6-9 */
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0.24) 0%, rgba(0,0,0,0.41) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.24)), color-stop(100%,rgba(0,0,0,0.41))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0.24) 0%,rgba(0,0,0,0.41) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(0,0,0,0.24) 0%,rgba(0,0,0,0.41) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(0,0,0,0.24) 0%,rgba(0,0,0,0.41) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(0,0,0,0.24) 0%,rgba(0,0,0,0.41) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d000000', endColorstr='#69000000',GradientType=0 ); /* IE6-9 */
   padding: 0.5em;
   border-bottom: 1px solid #fff;
   a.account{
@@ -303,7 +302,12 @@ article.note{
 
 header > div.maxwidth > *{
   &.userinfo label, &.userinfo .expand a{
-    @include button(#000);
+    @include button(#fff);
+    box-shadow: 0px 1px 0px black;
+    text-shadow: 0px 1px 0px black;
+    &:hover{
+      background-color: #000;
+    }
     display: inline;
     vertical-align: baseline;
   }
