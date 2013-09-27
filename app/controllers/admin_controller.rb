@@ -80,10 +80,10 @@ class AdminController < ApplicationController
       if current_user.is_admin?
         
       else
-        redirect_to subjects_path, notice: 'Well done, you found the admin panel! Unfortunately, you are not an admin so you don\'t have permission to view it.'
+        redirect_to subjects_path, flash: { error: 'Someday you might become an admin, but until then you can\'t visit this page.' }
       end
     else
-      redirect_to root_path, notice: 'Well done, you found the admin panel! Unfortunately, you are not an admin so you don\'t have permission to view it.'
+      redirect_to root_path, flash: { error: 'Someday you might become an admin, but until then you can\'t visit this page.' }
     end
   end
 end
