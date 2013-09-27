@@ -12,14 +12,19 @@
 </head>
 <body>
 <% [:notice, :error, :alert].each do |level| %>
-  <% unless flash[level].blank? %>
-    <div class="main">
-  <div class="maxwidth"><div class="alert-message">
-      <%= content_tag :p, flash[level] %>
-      </div></div>
-    </div>
+    <% unless flash[level].blank? %>
+      <div class="alert alert-<%= level == :notice ? "success" : "error" %>">
+        <div class="main">
+          <div class="maxwidth">
+            <p>
+              <span class="alert-close">X</span>
+              <%= flash[level] %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
 <%= yield %>
 <footer>
   <div class="maxwidth">

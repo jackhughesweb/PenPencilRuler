@@ -13,8 +13,6 @@
         <a href="#" class="show">Show</a>
         <a href="#" class="hide">Hide</a>
         <%= link_to 'Edit', edit_subject_topic_note_path(@subject, @topic, note), class: 'edit' %>
-        <br>
-        <br>
         <div class="text"><%= markdown(h(note.text)) %></div>
       </div>
     </article>

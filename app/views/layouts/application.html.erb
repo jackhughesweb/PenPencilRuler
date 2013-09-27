@@ -11,17 +11,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
-<% [:notice, :error, :alert].each do |level| %>
-  <% unless flash[level].blank? %>
-    <div class="main">
-  <div class="maxwidth"><div class="alert-message">
-      <%= content_tag :p, flash[level] %>
-      </div></div>
-    </div>
-  <% end %>
-<% end %>
-
   <header>
     <div class="maxwidth">
       <span class="userinfo"><% if user_signed_in? %><input type="checkbox" id="usertoggle"><span class="expand">
@@ -38,6 +27,20 @@
       <span class="navcurrent"><%= @title %></span>
     </div>
   </header>
+  <% [:notice, :error, :alert].each do |level| %>
+    <% unless flash[level].blank? %>
+      <div class="alert alert-<%= level == :notice ? "success" : "error" %>">
+        <div class="main">
+          <div class="maxwidth">
+            <p>
+              <span class="alert-close">X</span>
+              <%= flash[level] %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
   <div class="main">
   <div class="maxwidth">
 <%= yield %>
