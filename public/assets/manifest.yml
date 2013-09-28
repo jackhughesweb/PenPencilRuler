@@ -31,7 +31,7 @@ application.js: application-c1a1cbcc78f57ff90c2628543eb5f68c.js
 application/index.js: application-c1a1cbcc78f57ff90c2628543eb5f68c.js
 application-admin.css: application-admin-8e389312465ba1cc540e5cc2f049f836.css
 application-admin/index.css: application-admin-8e389312465ba1cc540e5cc2f049f836.css
-application-main.css: application-main-4b88c4c6e1c58c35375534246de2e198.css
-application-main/index.css: application-main-4b88c4c6e1c58c35375534246de2e198.css
+application-main.css: application-main-c4d706fdd7703f08ebf5e5e4ddeb30d2.css
+application-main/index.css: application-main-c4d706fdd7703f08ebf5e5e4ddeb30d2.css
 jquery.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 jquery/index.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
