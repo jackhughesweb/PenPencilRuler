@@ -18,6 +18,8 @@
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 
-<p>By signing up, you agree to the <%= link_to "Terms of Service", terms_path %></p>
+<p>Already have an account? <%= link_to "Login", login_path %></p>
+
+<p>By signing up, you agree to our <%= link_to "Terms of Service", terms_path %> and <%= link_to "Privacy Policy", privacy_path %></p>
 
 <%= render "devise/shared/links" %>

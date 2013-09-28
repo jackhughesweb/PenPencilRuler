@@ -111,12 +111,16 @@ div.main{
   padding: 0.5em;
 }
 
-a.login, a.signup{
-  width: 5em;
+a.signup{
+  width: 10em;
   // old colour 563e26
   @include button(#000);
   text-align: center;
   margin: 0.5em;
+}
+
+a.login{
+  float: right;
 }
 
 header{
