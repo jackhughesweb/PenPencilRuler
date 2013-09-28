@@ -121,6 +121,9 @@ a.signup{
 
 a.login{
   float: right;
+  @include button(#000);
+  text-align: center;
+  margin: 0.5em;
 }
 
 header{
