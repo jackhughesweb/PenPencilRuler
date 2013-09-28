@@ -4,6 +4,7 @@ Penpencilruler::Application.routes.draw do
   get '/privacy' => 'pages#privacy'
   get '/copyright' => 'pages#copyright'
   get '/feedback' => 'pages#feedback'
+  get '/cookies' => 'pages#cookies'
   get '/suspended' => 'pages#suspended', as: 'suspended'
 
   devise_for :users, controllers: { registrations: "users/registrations"}

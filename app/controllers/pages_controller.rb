@@ -34,4 +34,8 @@ class PagesController < ApplicationController
   def copyright
 
   end
+
+  def cookies
+
+  end
 end
