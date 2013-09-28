@@ -18,6 +18,9 @@
   border: 2px solid $color;
   display: inline-block;
   font-size: 1rem;
+  -webkit-background-clip: padding-box; 
+  -moz-background-clip: padding; 
+  background-clip: padding-box;
   &:hover{
     background-color: $color;
     color: #fff;
