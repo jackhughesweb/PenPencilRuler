@@ -4,4 +4,12 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Penpencilruler::Application.config.secret_token = '5512f69dda30ef3092688c5ba4a49fa8419718f244fdd67a2fd0c90359576b430624254d36b9a56443f371c60b8f5b30078c07e7f83dfd2d8e7d38e3ef9bc189'
+
+# The secret that was in here before the environment variable has been changed
+
+secret = ENV['PENPENCILRULER_SECRET']
+if secret.length < 30
+  raise "Secret token cannot be loaded"
+else
+  Penpencilruler::Application.config.secret_token = secret
+end
