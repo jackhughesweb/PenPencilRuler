@@ -41,8 +41,6 @@
     text-decoration: none;
     @include gradient($color);
     padding: 0.5em;
-    box-shadow: inset 0px 1px 0px lighten($color, 30%);
-    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.6);
     border: 1px solid darken($color, 10%);
     &:hover{
       @include gradient(lighten($color, 10%));
@@ -130,15 +128,8 @@ a.login{
 }
 
 header{
-  background: -moz-linear-gradient(top,  rgba(0,0,0,0.24) 0%, rgba(0,0,0,0.41) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.24)), color-stop(100%,rgba(0,0,0,0.41))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(0,0,0,0.24) 0%,rgba(0,0,0,0.41) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(0,0,0,0.24) 0%,rgba(0,0,0,0.41) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(0,0,0,0.24) 0%,rgba(0,0,0,0.41) 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  rgba(0,0,0,0.24) 0%,rgba(0,0,0,0.41) 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d000000', endColorstr='#69000000',GradientType=0 ); /* IE6-9 */
+  background-color: #888;
   padding: 0.5em;
-  border-bottom: 1px solid #fff;
   a.account{
     @include button(#000);
     display: inline-block;
@@ -146,7 +137,6 @@ header{
   }
   .navcurrent{
     color: white;
-    text-shadow: 0px 1px 0px black;
   }
   &, *{
     vertical-align: top;
@@ -232,7 +222,7 @@ header img.navlogo{
   border: 2px solid #fff;
   background-color: #fff;
   &:hover{
-    border: 2px solid #000;
+    border: 2px solid #ddd;
   }
 }
 
@@ -310,13 +300,17 @@ article.note{
   }
 }
 
+$header-button-color: #bbb;
+
 header > div.maxwidth > *{
   &.userinfo label, &.userinfo .expand a{
-    @include button(#fff);
-    box-shadow: 0px 1px 0px black;
-    text-shadow: 0px 1px 0px black;
+    @include button($header-button-color);
+    background-color: $header-button-color;
+    color: #000;
     &:hover{
-      background-color: #000;
+      background-color: darken($header-button-color, 10%);
+      border-color: darken($header-button-color, 10%);
+      color: #000;
     }
     display: inline;
     vertical-align: baseline;
@@ -325,8 +319,9 @@ header > div.maxwidth > *{
     display: none;
   }
   &.userinfo input[type=checkbox]:checked ~ .expand label{
-    background-color: #000;
-    color: #fff;
+    background-color: darken($header-button-color, 10%);
+    color: #000;
+    border-color: darken($header-button-color, 10%);
   }
   &.userinfo input[type=checkbox]:checked ~ .expand a{
     display: inline;
