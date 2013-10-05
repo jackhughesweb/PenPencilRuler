@@ -14,6 +14,7 @@
   <header>
     <div class="maxwidth">
       <span class="userinfo"><% if user_signed_in? %><input type="checkbox" id="usertoggle"><span class="expand">
+            <a href="<%= search_index_path %>" style="display: inline !important;"><img src="/assets/iconmonstr-magnifier-icon-256-white.png" height="20px" style="vertical-align: sub;"> Search</a>
             <label for="usertoggle"><%= current_user.name %></label>
             <%= link_to "Edit account", edit_user_registration_path %>
             <%= link_to "Sign out", logout_path %>

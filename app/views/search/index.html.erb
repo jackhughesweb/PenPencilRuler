@@ -1,0 +1,35 @@
+<% @title = "Search" %>
+</div>
+</div>
+<div class="searcharea">
+  <div class="maxwidth">
+    <%= form_tag('/search', :method => 'get', :class => "searchform") do %>
+      <% if params.has_key?(:search) %>
+        <%= text_field "", :search, class: "search", value: params[:search], placeholder: "Search notes..." %>
+      <% else %>
+        <%= text_field "", :search, class: "search", placeholder: "Search notes...", autofocus: "autofocus" %>
+      <% end %>
+      <button type="submit"></button>
+    <% end %>
+    </div>
+</div>
+<div class="main">
+<div class="maxwidth">
+<% if params.has_key?(:search) %>
+  <% if @notes.size > 0 %>
+    <% @notes.each do |note| %>  
+        <div class="notesearch">
+          <a href="<%= subject_topic_notes_path(note.topic.subject, note.topic, :anchor => note.id) %>">
+            <div class="title"><%= note.topic.subject.name %> - <%= note.topic.name %> - <%= note.title %></div>
+          </a>
+          <div class="text"><%= markdown(highlight(h(note.text), params[:search], highlighter: '<span class="highlight">\1</span>')) %></div>
+        </div>
+    <% end %>
+    <% if params[:id].nil? %>
+      <br>
+      <%= paginate @notes %>
+    <% end %>
+  <% else %>
+  No results found.
+  <% end %>
+<% end %>
