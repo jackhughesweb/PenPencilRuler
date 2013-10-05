@@ -23,6 +23,8 @@ Penpencilruler::Application.routes.draw do
     end
   end
 
+  resources :search
+
   resources :subjects do
     resources :topics do
       resources :notes

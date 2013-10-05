@@ -427,3 +427,106 @@ span.arrow{
     display: inline-block;
   }
 }
+
+div.searcharea{
+  background-color: #fff;
+  input.search{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    border: none;
+    width: 90%;
+    font-size: 3em;
+    outline: none;
+    vertical-align: middle;
+  }
+  button{
+    vertical-align: middle;
+    border: 0;
+    padding: 0 1em;
+    width: 9%;
+    height: 3em;
+    background-color: #ccc;
+    background-image: url('/assets/iconmonstr-magnifier-icon.png');
+    background-size: 3em;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
+
+div.notesearch{
+  background-color: #fff;
+  margin-top: 1em;
+  color: #000;
+  div.title{
+    padding: 1em;
+    width: 100%;
+    color: #000;
+    display: inline-block;
+    background-color: #ccc;
+    padding-right: 1.5em;
+    background-image: url('/assets/iconmonstr-arrow-25-icon-256.png');
+    background-size: 1em;
+    background-repeat: no-repeat;
+    background-position: right 1em center;
+    &:hover{
+      background-color: #aaa;
+    }
+  }
+  div.text{
+    padding: 1em;
+    span.highlight{
+      background-color: #ffff00;
+    }
+  }
+}
+
+div.pagination{
+  ul{
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    li{
+      a{
+        color: #000;
+        text-decoration: none;
+      }
+      color: #000;
+      background-color: rgba(0, 0, 0, 0);
+      cursor: pointer;
+      text-decoration: none;
+      padding: 0.3em;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border: 2px solid #000;
+      display: inline-block;
+      font-size: 1rem;
+      -webkit-background-clip: padding-box; 
+      -moz-background-clip: padding; 
+      background-clip: padding-box;
+      &:hover{
+        a{
+          color: #fff;
+        }
+        background-color: #000;
+        color: #fff;
+      }
+      &:active, &.current{
+        a{
+          color: #fff;
+        }
+        background-color: darken(#000, 10%);
+        border: 2px solid darken(#000, 10%);
+        color: #fff;
+      }
+      &:first-child{
+        border-radius: 0.5em 0 0 0.5em;
+      }
+      &:last-child{
+        border-radius: 0 0.5em 0.5em 0;
+      }
+    }
+  }
+}
