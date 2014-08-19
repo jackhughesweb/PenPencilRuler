@@ -1,4 +1,4 @@
-## pen pencil ruler
+# pen pencil ruler [![Dependency Status](https://gemnasium.com/jackhughesweb/PenPencilRuler.svg)](https://gemnasium.com/jackhughesweb/PenPencilRuler)
 a simple way to revise notes
 
 ![Pen Pencil Ruler Logo](app/assets/images/hero.png)
